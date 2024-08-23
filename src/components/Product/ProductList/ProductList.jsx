@@ -1,4 +1,5 @@
 import ProductItem from "../ProductItem/ProductItem.jsx";
+import css from "./ProductList.module.css";
 
 const ProductList = ({ products }) => {
   if (!Array.isArray(products) || products.length === 0) {
@@ -6,13 +7,15 @@ const ProductList = ({ products }) => {
   }
 
   return (
-    <ul>
-      {products.map(({ id, image, title, price }) => {
-        return (
-          <ProductItem key={id} image={image} title={title} price={price} />
-        );
-      })}
-    </ul>
+    <div className={css.productListWrap}>
+      <ul className={css.productList}>
+        {products.map(({ id, image, title, price }) => {
+          return (
+            <ProductItem key={id} image={image} title={title} price={price} />
+          );
+        })}
+      </ul>
+    </div>
   );
 };
 
