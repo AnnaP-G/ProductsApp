@@ -1,22 +1,17 @@
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ProductList from "../../components/Product/ProductList/ProductList.jsx";
-import { useEffect } from "react";
-import axios from "axios";
+import css from "./ProductsPage.module.css";
 
 const ProductsPage = () => {
-  const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    async function apiFetchProducts() {
-      const response = await axios.get("https://fakestoreapi.com/products");
-      setProducts(response.data);
-    }
-    apiFetchProducts();
-  }, []);
+  const handleShowMore = (product) => {
+    navigate(`/products/${product.id}`);
+  };
 
   return (
-    <div>
-      <ProductList products={products} />
+    <div className={css.productsPageWrap}>
+      <ProductList onShowMore={handleShowMore} />
     </div>
   );
 };

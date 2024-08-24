@@ -6,6 +6,12 @@ const HomePage = lazy(() => import("./pages/HomePage/HomePage.jsx"));
 const ProductsPage = lazy(() =>
   import("./pages/ProductsPage/ProductsPage.jsx")
 );
+const ProductDetailsPage = lazy(() =>
+  import("./pages/ProductDetailsPage/ProductDetailsPage.jsx")
+);
+const AddProductPage = lazy(() =>
+  import("./pages/AddProductPage/AddProductPage.jsx")
+);
 const NotFoundPages = lazy(() =>
   import("./pages/NotFoundPages/NotFoundPages.jsx")
 );
@@ -17,6 +23,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<ProductsPage />} />
+          <Route path="/products/:productId" element={<ProductDetailsPage />} />
+          <Route path="/add-product" element={<AddProductPage />} />
           <Route path="*" element={<NotFoundPages />} />
         </Routes>
       </Layout>
