@@ -1,3 +1,9 @@
-/* .productItem {
+.productItem {
     display: flex;
-} */
+    width: 100%;
+    height: 358px;
+    width: calc((100% / 4) - 36px);
+    border: 1px solid rgba(16, 24, 40, 0.2);
+    border-radius: 20px;
+    padding: 5px;
+}

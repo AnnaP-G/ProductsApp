@@ -3,11 +3,15 @@
     height: 250px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
     padding: 10px;
+    align-items: center;
+    justify-content: center;
 }
 
 .productImg {
+    overflow: hidden;
+    object-fit: contain;
     width: 150px;
     height: 100%;
 }

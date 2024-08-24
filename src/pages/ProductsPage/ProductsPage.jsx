@@ -3,7 +3,7 @@ import ProductList from "../../components/Product/ProductList/ProductList.jsx";
 import { useEffect } from "react";
 import axios from "axios";
 
-const ProductPage = () => {
+const ProductsPage = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -21,4 +21,4 @@ const ProductPage = () => {
   );
 };
 
-export default ProductPage;
+export default ProductsPage;
