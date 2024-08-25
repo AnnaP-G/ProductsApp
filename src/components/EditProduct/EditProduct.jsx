@@ -17,7 +17,7 @@ const EditProduct = () => {
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       await dispatch(updateProduct({ ...values, id: productId })).unwrap();
-      navigate(`/products/${productId}`); // Перехід на деталі товару після успішного оновлення
+      navigate(`/products/${productId}`);
     } catch (error) {
       console.error("Error updating product:", error);
     } finally {

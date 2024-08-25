@@ -8,7 +8,7 @@ import {
 
 const initialState = {
   products: [],
-  status: "idle", // idle, loading, succeeded, failed
+  status: "idle",
   error: null,
 };
 
@@ -18,6 +18,7 @@ const productsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+
       .addCase(fetchProducts.pending, (state) => {
         state.status = "loading";
       })
@@ -29,10 +30,24 @@ const productsSlice = createSlice({
         state.status = "failed";
         state.error = action.error.message;
       })
+
+      .addCase(addProduct.pending, (state) => {
+        state.status = "loading";
+      })
       .addCase(addProduct.fulfilled, (state, action) => {
+        state.status = "succeeded";
         state.products.push(action.payload);
       })
+      .addCase(addProduct.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      })
+
+      .addCase(updateProduct.pending, (state) => {
+        state.status = "loading";
+      })
       .addCase(updateProduct.fulfilled, (state, action) => {
+        state.status = "succeeded";
         const index = state.products.findIndex(
           (product) => product.id === action.payload.id
         );
@@ -40,10 +55,23 @@ const productsSlice = createSlice({
           state.products[index] = action.payload;
         }
       })
+      .addCase(updateProduct.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      })
+
+      .addCase(deleteProduct.pending, (state) => {
+        state.status = "loading";
+      })
       .addCase(deleteProduct.fulfilled, (state, action) => {
+        state.status = "succeeded";
         state.products = state.products.filter(
           (product) => product.id !== action.payload
         );
+      })
+      .addCase(deleteProduct.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
       });
   },
 });

@@ -7,11 +7,16 @@ import {
   selectProductsError,
   selectProductsStatus,
 } from "../../redux/products/selectors.js";
-import { fetchProducts } from "../../redux/products/operations.js";
-import clsx from "clsx"; // Імпортуємо бібліотеку clsx
+import {
+  deleteProduct,
+  fetchProducts,
+} from "../../redux/products/operations.js";
+import clsx from "clsx";
+import { useNavigate } from "react-router-dom";
 
 const ProductList = ({ onShowMore }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const products = useSelector(selectProducts);
   const status = useSelector(selectProductsStatus);
   const error = useSelector(selectProductsError);
@@ -22,9 +27,22 @@ const ProductList = ({ onShowMore }) => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
+  // Обробка ефекту після додавання або редагування продукту
+  useEffect(() => {
+    dispatch(fetchProducts()); // Оновлюємо список товарів
+  }, [dispatch]);
+
   const handleShow8Products = () => setLimit(8);
   const handleShow16Products = () => setLimit(16);
   const handleShowAllProducts = () => setLimit(products.length);
+
+  const handleDeleteProduct = (productId) => {
+    dispatch(deleteProduct(productId));
+  };
+
+  const handleEditProduct = (productId) => {
+    navigate(`/products/${productId}/edit`);
+  };
 
   if (status === "loading") return <p>Loading...</p>;
   if (status === "failed") return <p>Error: {error}</p>;
@@ -66,6 +84,8 @@ const ProductList = ({ onShowMore }) => {
             key={product.id}
             product={product}
             onShowMore={onShowMore}
+            onDelete={handleDeleteProduct}
+            onEdit={() => handleEditProduct(product.id)}
           />
         ))}
       </ul>
