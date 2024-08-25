@@ -8,6 +8,7 @@ import {
   selectProductsStatus,
 } from "../../redux/products/selectors.js";
 import { fetchProducts } from "../../redux/products/operations.js";
+import clsx from "clsx"; // Імпортуємо бібліотеку clsx
 
 const ProductList = ({ onShowMore }) => {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ const ProductList = ({ onShowMore }) => {
 
   const handleShow8Products = () => setLimit(8);
   const handleShow16Products = () => setLimit(16);
-  const handleShowAllProducts = () => setLimit(20);
+  const handleShowAllProducts = () => setLimit(products.length);
 
   if (status === "loading") return <p>Loading...</p>;
   if (status === "failed") return <p>Error: {error}</p>;
@@ -34,13 +35,28 @@ const ProductList = ({ onShowMore }) => {
   return (
     <div className={css.productListWrap}>
       <div className={css.productListButton}>
-        <button className={css.button} onClick={handleShow8Products}>
+        <button
+          className={clsx(css.button, {
+            [css.activeButton]: limit === 8,
+          })}
+          onClick={handleShow8Products}
+        >
           Show 8 products
         </button>
-        <button className={css.button} onClick={handleShow16Products}>
+        <button
+          className={clsx(css.button, {
+            [css.activeButton]: limit === 16,
+          })}
+          onClick={handleShow16Products}
+        >
           Show 16 products
         </button>
-        <button className={css.button} onClick={handleShowAllProducts}>
+        <button
+          className={clsx(css.button, {
+            [css.activeButton]: limit === products.length,
+          })}
+          onClick={handleShowAllProducts}
+        >
           Show all products
         </button>
       </div>

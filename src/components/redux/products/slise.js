@@ -6,13 +6,15 @@ import {
   deleteProduct,
 } from "./operations";
 
+const initialState = {
+  products: [],
+  status: "idle", // idle, loading, succeeded, failed
+  error: null,
+};
+
 const productsSlice = createSlice({
   name: "products",
-  initialState: {
-    products: [],
-    status: "idle",
-    error: null,
-  },
+  initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder

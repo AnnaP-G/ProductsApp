@@ -1,11 +1,34 @@
-.link {
-    display: inline-block;
-    text-decoration: none;
-    padding: 12px;
-    font-weight: 700;
-    color: #2a363b;
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
 }
 
-.link.active {
-    color: #e84a5f;
+.link {
+    text-decoration: none;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    border: 1px solid #082748;
+    border-radius: 20px;
+    padding: 10px 10px;
+    margin: 0 10px;
+    color: #082748;
+    font-weight: bold;
+    background-color: 2px solid transparent;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.active {
+    background-color: #007bff;
+    
+}
+
+.link:hover {
+    background-color: #082748;
+    color: white;
 }

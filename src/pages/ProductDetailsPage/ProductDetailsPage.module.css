@@ -1,29 +1,64 @@
 .productDetails {
     display: flex;
     gap: 40px;
-    padding: 10px;
-    align-items: flex-end;
-    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .productDetailsImage {
-    display: flex;
-    padding: 10px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+    margin-bottom: 20px;
 }
 
 .productImg {
-    display: block;
-    width: 300px;
-    height: 500px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .productDetailsInfo {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    gap: 40px;
+    text-align: center;
+}
+
+.productDetailsInfo h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: #333;
+}
+
+.productDetailsInfo p {
+    margin: 10px 0;
+    color: #555;
+}
+
+.editButton,
+.deleteButton {
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 5px;
+}
+
+.editButton {
+    background-color: #007bff;
+}
+
+.deleteButton {
+    background-color: #dc3545;
+}
+
+.editButton:hover,
+.editButton:focus {
+    background-color: #0056b3;
+}
+
+.deleteButton:hover,
+.deleteButton:focus {
+    background-color: #c82333;
 }

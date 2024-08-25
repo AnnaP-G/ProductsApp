@@ -1,10 +1,10 @@
-import css from "./EditProduct.module.css";
-import { validationSchema } from "../utils/validationSchema.js";
-import { selectProductById } from "../redux/products/selectors.js";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { updateProduct } from "../redux/products/operations.js";
 import { ErrorMessage, Field, Form, Formik } from "formik";
+import css from "./EditProduct.module.css";
+import { selectProductById } from "../redux/products/selectors.js";
+import { updateProduct } from "../redux/products/operations.js";
+import { validationSchema } from "../utils/validationSchema.js";
 
 const EditProduct = () => {
   const { productId } = useParams();
@@ -17,7 +17,7 @@ const EditProduct = () => {
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       await dispatch(updateProduct({ ...values, id: productId })).unwrap();
-      navigate("/products");
+      navigate(`/products/${productId}`); // Перехід на деталі товару після успішного оновлення
     } catch (error) {
       console.error("Error updating product:", error);
     } finally {
