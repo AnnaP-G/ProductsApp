@@ -15,9 +15,9 @@ export const fetchProducts = createAsyncThunk(
 
 export const addProduct = createAsyncThunk(
   "products/addProduct",
-  async (product, thunkApi) => {
+  async (newProduct, thunkApi) => {
     try {
-      const response = await instance.post("/products/add", product);
+      const response = await instance.post("/products/add", newProduct);
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -41,8 +41,8 @@ export const deleteProduct = createAsyncThunk(
   "products/deleteProduct",
   async (productId, thunkApi) => {
     try {
-      await instance.delete(`/products/${productId}`);
-      return productId;
+      const { data } = await instance.delete(`/products/${productId}`);
+      return data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }

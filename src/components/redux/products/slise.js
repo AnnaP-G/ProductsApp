@@ -8,8 +8,8 @@ import {
 
 const initialState = {
   products: [],
-  status: "idle",
-  error: null,
+  isLoading: false,
+  isError: false,
 };
 
 const productsSlice = createSlice({
@@ -20,34 +20,37 @@ const productsSlice = createSlice({
     builder
 
       .addCase(fetchProducts.pending, (state) => {
-        state.status = "loading";
+        state.isLoading = true;
+        state.isError = false;
       })
       .addCase(fetchProducts.fulfilled, (state, action) => {
-        state.status = "succeeded";
+        state.isLoading = false;
         state.products = action.payload;
       })
-      .addCase(fetchProducts.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.error.message;
+      .addCase(fetchProducts.rejected, (state) => {
+        state.isLoading = false;
+        state.isError = true;
       })
 
       .addCase(addProduct.pending, (state) => {
-        state.status = "loading";
+        state.isLoading = true;
+        state.isError = false;
       })
       .addCase(addProduct.fulfilled, (state, action) => {
-        state.status = "succeeded";
-        state.products.push(action.payload);
+        state.isLoading = false;
+        state.products = action.payload;
       })
-      .addCase(addProduct.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.error.message;
+      .addCase(addProduct.rejected, (state) => {
+        state.isLoading = false;
+        state.isError = true;
       })
 
       .addCase(updateProduct.pending, (state) => {
-        state.status = "loading";
+        state.isLoading = true;
+        state.isError = false;
       })
       .addCase(updateProduct.fulfilled, (state, action) => {
-        state.status = "succeeded";
+        state.isLoading = false;
         const index = state.products.findIndex(
           (product) => product.id === action.payload.id
         );
@@ -55,23 +58,25 @@ const productsSlice = createSlice({
           state.products[index] = action.payload;
         }
       })
-      .addCase(updateProduct.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.error.message;
+      .addCase(updateProduct.rejected, (state) => {
+        state.isLoading = false;
+        state.isError = true;
       })
 
       .addCase(deleteProduct.pending, (state) => {
-        state.status = "loading";
+        state.isLoading = true;
+        state.isError = false;
       })
       .addCase(deleteProduct.fulfilled, (state, action) => {
-        state.status = "succeeded";
+        state.isLoading = false;
         state.products = state.products.filter(
-          (product) => product.id !== action.payload
+          (product) => product.id !== action.payload.id
         );
       })
-      .addCase(deleteProduct.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.error.message;
+
+      .addCase(deleteProduct.rejected, (state) => {
+        state.isLoading = false;
+        state.isError = true;
       });
   },
 });

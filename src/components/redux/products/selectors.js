@@ -7,10 +7,6 @@ export const selectProductsStatus = (state) => state.products.status;
 
 export const selectProductsError = (state) => state.products.error;
 
-export const selectProductsIsLoading = (state) =>
-  state.products.status === "loading";
-
-export const selectProductsIsError = (state) =>
-  state.products.status === "failed";
+export const selectProductsIsLoading = (state) => state.products.loading;
 
 export const selectTotalProducts = (state) => state.products.products.length;

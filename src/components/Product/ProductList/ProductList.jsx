@@ -1,57 +1,34 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import ProductItem from "../ProductItem/ProductItem.jsx";
-import css from "./ProductList.module.css";
+import Loader from "../../Loader/Loader.jsx";
+import ErrorMessage from "../../ErrorMessage/ErrorMessage.jsx";
 import {
   selectProducts,
   selectProductsError,
-  selectProductsStatus,
+  selectProductsIsLoading,
 } from "../../redux/products/selectors.js";
-import {
-  deleteProduct,
-  fetchProducts,
-} from "../../redux/products/operations.js";
 import clsx from "clsx";
-import { useNavigate } from "react-router-dom";
+import css from "./ProductList.module.css";
 
 const ProductList = ({ onShowMore }) => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const isLoading = useSelector(selectProductsIsLoading);
+  const isError = useSelector(selectProductsError);
   const products = useSelector(selectProducts);
-  const status = useSelector(selectProductsStatus);
-  const error = useSelector(selectProductsError);
-
   const [limit, setLimit] = useState(8);
-
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
-
-  // Обробка ефекту після додавання або редагування продукту
-  useEffect(() => {
-    dispatch(fetchProducts()); // Оновлюємо список товарів
-  }, [dispatch]);
 
   const handleShow8Products = () => setLimit(8);
   const handleShow16Products = () => setLimit(16);
   const handleShowAllProducts = () => setLimit(products.length);
 
-  const handleDeleteProduct = (productId) => {
-    dispatch(deleteProduct(productId));
-  };
-
-  const handleEditProduct = (productId) => {
-    navigate(`/products/${productId}/edit`);
-  };
-
-  if (status === "loading") return <p>Loading...</p>;
-  if (status === "failed") return <p>Error: {error}</p>;
   if (!Array.isArray(products) || products.length === 0) {
     return <p>There are no products available</p>;
   }
 
   return (
     <div className={css.productListWrap}>
+      {isLoading && <Loader />}
+      {isError && <ErrorMessage />}
       <div className={css.productListButton}>
         <button
           className={clsx(css.button, {
@@ -84,8 +61,6 @@ const ProductList = ({ onShowMore }) => {
             key={product.id}
             product={product}
             onShowMore={onShowMore}
-            onDelete={handleDeleteProduct}
-            onEdit={() => handleEditProduct(product.id)}
           />
         ))}
       </ul>
