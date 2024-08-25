@@ -8,6 +8,7 @@ import {
 
 const initialState = {
   products: [],
+  addedProducts: [],
   isLoading: false,
   isError: false,
 };
@@ -15,7 +16,13 @@ const initialState = {
 const productsSlice = createSlice({
   name: "products",
   initialState,
-  reducers: {},
+  reducers: {
+    addProduct: {
+      reducer(state, action) {
+        state.addedProducts.push(action.payload);
+      },
+    },
+  },
   extraReducers: (builder) => {
     builder
 
@@ -38,7 +45,8 @@ const productsSlice = createSlice({
       })
       .addCase(addProduct.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.products = action.payload;
+        state.products.push(action.payload);
+        state.addedProducts.push(action.payload);
       })
       .addCase(addProduct.rejected, (state) => {
         state.isLoading = false;

@@ -11,7 +11,7 @@ const ProductItem = ({ product, onShowMore }) => {
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
-  const imageUrl = product.images[0];
+  // const imageUrl = product.images[0];
 
   const handleEdit = () => {
     navigate(`/products/edit/${product.id}`);
@@ -34,7 +34,7 @@ const ProductItem = ({ product, onShowMore }) => {
     <>
       <li className={css.productItem}>
         <ProductCard
-          image={imageUrl}
+          image={product.image}
           title={product.title}
           price={product.price}
         />

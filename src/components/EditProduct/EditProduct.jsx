@@ -10,9 +10,7 @@ const EditProduct = () => {
   const { productId } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const product = useSelector((state) =>
-    selectProductById(state, parseInt(productId))
-  );
+  const product = useSelector((state) => selectProductById(state, productId));
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {

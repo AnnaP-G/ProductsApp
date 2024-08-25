@@ -1,12 +1,12 @@
-import { useNavigate } from "react-router-dom";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useDispatch } from "react-redux";
 import css from "./AddProductForm.module.css";
 import { addProduct } from "../redux/products/operations.js";
 import { validationSchema } from "../utils/validationSchema.js";
+import { nanoid } from "@reduxjs/toolkit";
+import { addUserProduct } from "../redux/userProducts/slice.js";
 
 const AddProductForm = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   return (
@@ -25,15 +25,16 @@ const AddProductForm = () => {
           ...values,
           price: parseFloat(values.price),
           createdAt: new Date().toISOString(),
+          id: nanoid(),
         };
-
-        try {
-          await dispatch(addProduct(productData)).unwrap();
+        if (productData.published) {
+          dispatch(addProduct(productData));
+          dispatch(addUserProduct(productData));
           resetForm();
-          navigate("/products");
-        } catch (error) {
-          console.error("Error adding product:", error);
-        } finally {
+          setSubmitting(false);
+        } else {
+          dispatch(addUserProduct(productData));
+          resetForm();
           setSubmitting(false);
         }
       }}

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import css from "./ProductDetailsPage.module.css";
 import { instance } from "../../components/apiService/api.js";
+import DeleteProductModal from "../../components/DeleteProductModal/DeleteProductModal.jsx";
 import { deleteProduct } from "../../components/redux/products/operations.js";
 
 const ProductDetailsPage = () => {
@@ -10,6 +11,26 @@ const ProductDetailsPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [product, setProduct] = useState(null);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleEdit = () => {
+    navigate(`/products/edit/${product.id}`);
+  };
+
+  const handleDelete = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const confirmDelete = () => {
+    dispatch(deleteProduct(product.id));
+    setIsModalOpen(false);
+    navigate(`/products`);
+  };
 
   useEffect(() => {
     async function fetchProduct() {
@@ -19,19 +40,6 @@ const ProductDetailsPage = () => {
     fetchProduct();
   }, [productId]);
 
-  const handleDelete = async () => {
-    try {
-      await dispatch(deleteProduct(productId)).unwrap();
-      navigate("/products");
-    } catch (error) {
-      console.error("Error deleting product:", error);
-    }
-  };
-
-  const handleEdit = () => {
-    navigate(`/products/edit/${productId}`);
-  };
-
   if (!product) {
     return <p>Loading product details...</p>;
   }
@@ -40,7 +48,7 @@ const ProductDetailsPage = () => {
     <div className={css.productDetails}>
       <div className={css.productDetailsImage}>
         <img
-          src={product.images[0]}
+          src={product.image}
           alt={product.title}
           className={css.productImg}
         />
@@ -57,6 +65,13 @@ const ProductDetailsPage = () => {
           Delete Product
         </button>
       </div>
+      {isModalOpen && (
+        <DeleteProductModal
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          onConfirm={confirmDelete}
+        />
+      )}
     </div>
   );
 };
