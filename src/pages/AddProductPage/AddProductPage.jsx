@@ -5,8 +5,10 @@ import css from "./AddProductPage.module.css";
 const AddProductPage = () => {
   return (
     <div className={css.addProductPage}>
-      <h1 className={css.addProductPageTitle}>Add New Product</h1>
-      <AddProductForm />
+      <div>
+        <h1 className={css.addProductPageTitle}>Add New Product</h1>
+        <AddProductForm />
+      </div>
       <UserListProducts />
     </div>
   );

@@ -15,13 +15,15 @@ const userProductsSlice = createSlice({
     },
 
     deleteUserProduct(state, action) {
-      const index = state.findIndex((task) => task.id === action.payload);
-      state.splice(index, 1);
+      const index = state.products.findIndex(
+        (product) => product.id === action.payload
+      );
+      state.products.splice(index, 1);
     },
     togglePublished(state, action) {
-      for (const product of state) {
+      for (const product of state.products) {
         if (product.id === action.payload) {
-          product.completed = !product.completed;
+          product.published = !product.published;
           break;
         }
       }

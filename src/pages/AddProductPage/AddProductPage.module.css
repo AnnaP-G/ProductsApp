@@ -1,3 +1,8 @@
+.addProductPage {
+        display: flex;
+        gap: 40px;
+}
+
 .addProductPageTitle {
     font-size: 2rem;
     font-weight: bold;
