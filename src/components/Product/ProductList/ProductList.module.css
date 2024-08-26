@@ -6,7 +6,7 @@
     flex-wrap: wrap;
     grid-gap: 12px;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .productListButton {
@@ -14,6 +14,7 @@
     justify-content: end;
     gap: 20px;
     margin-bottom: 20px;
+    
 }
 
 .button {
@@ -23,7 +24,7 @@
     align-items: center;
     justify-content: center;
     width: 160px;
-    border: 1px solid #082748;
+    border-bottom: 1px solid #082748;
     border-radius: 20px;
     padding: 10px 20px;
     color: #082748;
@@ -34,12 +35,12 @@
 
 .button:hover,
 .button:focus {
-    background-color: #082748;
+    background-color: #0056b3;
     color: white;
 }
 
 .activeButton {
-    background-color: #007bff;
+    background-color: #0056b3;
     color: white;
-    border-color: #007bff;
+    border-color: #0056b3;
 }

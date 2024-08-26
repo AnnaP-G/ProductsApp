@@ -11,6 +11,10 @@ const ProductsPage = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectProductsIsLoading);
 
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
@@ -20,6 +24,9 @@ const ProductsPage = () => {
   };
   return (
     <div className={css.productsPageWrap}>
+      <button className={css.goBackButton} onClick={handleGoBack}>
+        Go Back
+      </button>
       {isLoading && <p>Request in progress...</p>}
       <ProductList onShowMore={handleShowMore} />
     </div>

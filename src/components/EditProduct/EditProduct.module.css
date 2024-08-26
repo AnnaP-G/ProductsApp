@@ -1,7 +1,5 @@
-/* AddProductForm.module.css */
-
 .form {
-    max-width: 600px;
+    width: 600px;
     margin: 0 auto;
     padding: 20px;
     border-radius: 8px;
@@ -55,11 +53,13 @@
     background-color: #007bff;
     color: #ffffff;
     padding: 10px 15px;
+    width: 100%;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 .submitButton:disabled {

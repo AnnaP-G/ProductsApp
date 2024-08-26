@@ -39,7 +39,7 @@ const ProductItem = ({ product, onShowMore }) => {
         />
         <div className={css.buttonContainer}>
           <button
-            className={css.showMoreButton}
+            className={css.showInfoButton}
             onClick={() => onShowMore(product)}
           >
             Show info

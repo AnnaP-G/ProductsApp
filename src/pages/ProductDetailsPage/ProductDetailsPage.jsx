@@ -14,6 +14,10 @@ const ProductDetailsPage = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
   const handleEdit = () => {
     navigate(`/products/edit/${product.id}`);
   };
@@ -46,6 +50,9 @@ const ProductDetailsPage = () => {
 
   return (
     <div className={css.productDetails}>
+      <button className={css.goBackButton} onClick={handleGoBack}>
+        Go Back
+      </button>
       <div className={css.productDetailsImage}>
         <img
           src={product.image}
@@ -54,7 +61,7 @@ const ProductDetailsPage = () => {
         />
       </div>
       <div className={css.productDetailsInfo}>
-        <h1>{product.title}</h1>
+        <h2 className={css.productDetailsInfoTitle}>{product.title}</h2>
         <p>Category: {product.category}</p>
         <p>Price: ${product.price}</p>
         <p>{product.description}</p>

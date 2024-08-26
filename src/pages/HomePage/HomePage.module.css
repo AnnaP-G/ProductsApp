@@ -1,13 +1,12 @@
 .container {
+    padding: 0px 20px;
     min-height: calc(100vh - 50px);
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: end;
     display: flex;
+    background-image: url('https://m.media-amazon.com/images/I/71iMEEljEwL._AC_UF894,1000_QL80_.jpg');
+    background-size: cover;
+    min-height: 100vh;
 }
 
-.title {
-    font-weight: 500;
-    font-size: 48px;
-    text-align: center;
-} 
 

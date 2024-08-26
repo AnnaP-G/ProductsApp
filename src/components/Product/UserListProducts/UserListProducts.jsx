@@ -38,7 +38,7 @@ const UserListProducts = () => {
 
   return (
     <div className={css.productList}>
-      <h1>User Products</h1>
+      <h1>New Products List</h1>
       {userProducts.length === 0 ? (
         <p>No products added yet</p>
       ) : (

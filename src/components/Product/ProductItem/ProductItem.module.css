@@ -21,21 +21,23 @@
     margin-top: auto;
 }
 
-
-.showMoreButton {
+.showInfoButton {
     border: none;
     border-radius: 20px;
     padding: 8px 16px;
     font-weight: bold;
     color: white;
-    background-color: #007bff;
+    border-bottom: 1px solid #082748;
+    color: #082748;
+    /* background-color: #007bff; */
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.showMoreButton:hover,
-.showMoreButton:focus {
+.showInfoButton:hover,
+.showInfoButton:focus {
     background-color: #0056b3;
+    color: white
 }
 
 .editButton,
@@ -62,7 +64,7 @@
 .icon {
     width: 20px;
     height: 20px;
-    stroke: #007bff;
+    stroke: #0056b3;
     fill: transparent;
     transition: stroke 0.3s ease, fill 0.3s ease;
 }
