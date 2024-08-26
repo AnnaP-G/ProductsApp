@@ -11,7 +11,6 @@ const ProductItem = ({ product, onShowMore }) => {
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
-  // const imageUrl = product.images[0];
 
   const handleEdit = () => {
     navigate(`/products/edit/${product.id}`);

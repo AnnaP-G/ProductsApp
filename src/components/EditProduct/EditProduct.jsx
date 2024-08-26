@@ -10,8 +10,14 @@ const EditProduct = () => {
   const { productId } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const product = useSelector((state) => selectProductById(state, productId));
+  const products = useSelector((state) => state.products.products);
+  const addedProducts = useSelector((state) => state.userProducts.products);
 
+  const product = useSelector(
+    (state) =>
+      selectProductById(state, productId) ||
+      addedProducts.find((p) => p.id === productId)
+  );
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       await dispatch(updateProduct({ ...values, id: productId })).unwrap();
