@@ -1,27 +1,17 @@
 .filterContainer {
     display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 20px;
+    flex-direction: column;
 }
 
-.filterButton {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: 2px solid #007bff;
-    border-radius: 5px;
-    background-color: #fff;
-    color: #007bff;
+.filterLabel {
+    display: flex;
+    align-items: center;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-bottom: 8px;
 }
 
-.filterButton:hover {
-    background-color: #007bff;
-    color: #fff;
+.filterCheckbox {
+    margin-right: 8px;
 }
 
-.active {
-    background-color: #007bff;
-    color: #fff;
-}
+/* Додайте інші стилі за потреби */

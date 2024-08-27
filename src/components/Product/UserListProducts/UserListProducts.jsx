@@ -35,9 +35,11 @@ const UserListProducts = () => {
   };
 
   return (
-    <div className={css.productList}>
-      <h1>New Products List</h1>
-      <StatusFilter />
+    <div className={css.productListContainer}>
+      <div className={css.header}>
+        <h1 className={css.title}>New Products List</h1>
+        <StatusFilter />
+      </div>
       {visiblePublish.length === 0 ? (
         <p>No products added yet</p>
       ) : (

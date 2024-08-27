@@ -1,70 +1,18 @@
-.productList {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.productListContainer {
+    display: flex;
+    flex-direction: column;
 }
 
-h1 {
-    text-align: center;
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 20px;
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.productDetailsInfo {
-    background-color: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.title {
+    margin: 0;
 }
 
-.productDetailsInfo h2 {
-    font-size: 20px;
-    color: #444;
-    margin-bottom: 10px;
-}
-
-.productDetailsInfo p {
-    color: #666;
-    margin-bottom: 8px;
-    font-size: 16px;
-}
-
-.editButton,
-.deleteButton {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.editButton {
-    background-color: #4caf50;
-    color: white;
-    margin-right: 10px;
-}
-
-.editButton:hover {
-    background-color: #45a049;
-}
-
-.deleteButton {
-    background-color: #f44336;
-    color: white;
-}
-
-.deleteButton:hover {
-    background-color: #e53935;
-}
-
-p {
-    text-align: center;
-    font-size: 18px;
-    color: #888;
+.statusFilter {
+    /* Додайте стилі для розміщення світчера на одному рівні з вкладками */
 }
