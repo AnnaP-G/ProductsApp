@@ -1,7 +1,10 @@
 import css from "./UserListProducts.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { deleteProductAsync } from "../../redux/userProducts/operations.js";
+import {
+  deleteProductAsync,
+  updateProductAsync,
+} from "../../redux/userProducts/operations.js";
 import { selectUserProducts } from "../../redux/userProducts/selectors.js";
 import UserProductItem from "./UserProductItem.jsx";
 import { statusFilters } from "../../redux/filters/constants.js";
@@ -27,7 +30,11 @@ const UserListProducts = () => {
   const visiblePublish = getVisibleProduct(userProducts, statusFilterProducts);
 
   const handleEdit = (id) => {
-    navigate(`/products/edit/${id}`);
+    const productToEdit = userProducts.find((product) => product.id === id);
+    if (productToEdit) {
+      dispatch(updateProductAsync(productToEdit));
+      navigate(`/products/edit/${id}`);
+    }
   };
 
   const handleDelete = (id) => {

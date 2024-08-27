@@ -5,23 +5,31 @@ import css from "./EditProduct.module.css";
 import { selectProductById } from "../redux/products/selectors.js";
 import { updateProduct } from "../redux/products/operations.js";
 import { validationSchema } from "../utils/validationSchema.js";
+import { updateProductAsync } from "../redux/userProducts/operations.js";
+import { selectProductByIdFromRedux } from "../redux/userProducts/selectors.js";
 
 const EditProduct = () => {
   const { productId } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const products = useSelector((state) => state.products.products);
-  const addedProducts = useSelector((state) => state.userProducts.products);
+  const productsFromApi = useSelector((state) => state.products.products);
+  // const addedProducts = useSelector((state) => state.userProducts.products);
 
   const product = useSelector(
     (state) =>
       selectProductById(state, productId) ||
-      addedProducts.find((p) => p.id === productId)
+      selectProductByIdFromRedux(state, productId)
   );
+
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
-      await dispatch(updateProduct({ ...values, id: productId }));
-      navigate(`/products/`);
+      if (productsFromApi.find((p) => p.id === productId)) {
+        await dispatch(updateProduct({ ...values, id: productId }));
+        navigate(`/products/`);
+      } else {
+        await dispatch(updateProductAsync({ ...values, id: productId }));
+        navigate(`/add-product`);
+      }
     } catch (error) {
       console.error("Error updating product:", error);
     } finally {

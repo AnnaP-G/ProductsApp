@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { togglePublished } from "../../redux/userProducts/slice.js";
 
 const UserProductItem = ({ product, handleEdit, handleDelete }) => {
+  console.log(product);
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
