@@ -1,0 +1,33 @@
+.editButton,
+.deleteButton {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.editButton {
+    background-color: #4caf50;
+    color: white;
+    margin-right: 10px;
+}
+
+.editButton:hover {
+    background-color: #45a049;
+}
+
+.deleteButton {
+    background-color: #f44336;
+    color: white;
+}
+
+.deleteButton:hover {
+    background-color: #e53935;
+}
+
+p {
+    text-align: center;
+    font-size: 18px;
+    color: #888;
+}

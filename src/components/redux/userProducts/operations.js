@@ -1,5 +1,9 @@
 import { createAction } from "@reduxjs/toolkit";
-import { deleteUserProduct } from "./slice.js";
+import { deleteUserProduct, updateUserProduct } from "./slice.js";
+
+export const updateProductAsync = (product) => (dispatch) => {
+  dispatch(updateUserProduct(product));
+};
 
 export const deleteProduct = createAction("DELETE_PRODUCT");
 
