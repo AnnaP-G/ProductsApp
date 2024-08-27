@@ -1,0 +1,27 @@
+.productCard {
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.productImg {
+    overflow: hidden;
+    object-fit: contain;
+    width: 150px;
+    height: 100%;
+}
+
+.productTitle {
+    font-weight: 500px;
+    font-size: 16px;
+}
+
+.productPrice {
+    font-weight: 400px;
+    font-size: 16px;
+}

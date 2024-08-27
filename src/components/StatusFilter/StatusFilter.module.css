@@ -1,0 +1,18 @@
+.filterContainer {
+    display: flex;
+    align-items: center;
+    padding-top: 12px;
+    gap: 5px;
+}
+
+.filterLabel {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+
+.filterCheckbox {
+    margin-right: 5px;
+}
+

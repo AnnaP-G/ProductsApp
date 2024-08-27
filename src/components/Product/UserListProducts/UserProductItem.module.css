@@ -1,0 +1,91 @@
+.productItem {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.productTitle {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.productImg {
+    max-width: 100%;
+    height: 200px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.productBtnWrap {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+    margin: 0 auto;
+}
+
+.editButton,
+.deleteButton,
+.togglePublishedButton {
+    text-align: center;
+    width: 90px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.editButton {
+    background-color: #1e88e5;
+    color: white;
+}
+
+.deleteButton {
+    background-color: #e57373;
+    color: white;
+}
+
+.togglePublishedButton {
+    background-color:  transparent;
+    border-bottom: 1px solid black;
+    color: black;
+    margin-top: 10px;
+}
+
+.editButton:hover {
+    background-color: #0056b3;
+    color: white
+}
+
+
+.deleteButton:hover {
+    background-color: #f44336;
+}
+
+.togglePublishedButton:hover {
+    background-color: #45a049;
+}
+
+.productBtnWrap button {
+    margin-right: 8px;
+}
+
+.productItem p {
+    margin: 4px 0;
+    font-size: 0.9rem;
+}
+
+.productItem img {
+    max-width: 100%;
+    border-radius: 4px;
+}
+
+.productItem p:last-of-type {
+    margin-bottom: 16px;
+}
