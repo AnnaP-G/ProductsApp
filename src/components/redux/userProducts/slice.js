@@ -16,16 +16,16 @@ const userProductsSlice = createSlice({
         (product) => product.id === action.payload.id
       );
       if (index !== -1) {
-        state.products[index] = action.payload;
+        state.products[index] = {
+          ...state.products[index],
+          ...action.payload,
+        };
       }
     },
     deleteUserProduct(state, action) {
-      const index = state.products.findIndex(
-        (product) => product.id === action.payload
+      state.products = state.products.filter(
+        (product) => product.id !== action.payload
       );
-      if (index !== -1) {
-        state.products.splice(index, 1);
-      }
     },
     togglePublished(state, action) {
       const index = state.products.findIndex(
@@ -33,6 +33,9 @@ const userProductsSlice = createSlice({
       );
       if (index !== -1) {
         state.products[index].published = !state.products[index].published;
+        state.products[index].publicationDate = state.products[index].published
+          ? new Date().toISOString()
+          : null;
       }
     },
   },

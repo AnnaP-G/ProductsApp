@@ -11,8 +11,11 @@ import { selectFilteredProductsByName } from "../../redux/filters/selectors.js";
 import clsx from "clsx";
 import css from "./ProductList.module.css";
 import SearchBox from "../../SearchBox/SearchBox.jsx";
+import { useNavigate } from "react-router-dom";
 
 const ProductList = ({ onShowMore }) => {
+  const navigate = useNavigate();
+
   const isLoading = useSelector(selectProductsIsLoading);
   const isError = useSelector(selectProductsError);
   const filteredProducts = useSelector(selectFilteredProductsByName);
@@ -21,6 +24,10 @@ const ProductList = ({ onShowMore }) => {
   const handleShow8Products = () => setLimit(8);
   const handleShow16Products = () => setLimit(16);
   const handleShowAllProducts = () => setLimit(filteredProducts.length);
+
+  const handleGoBack = () => {
+    navigate(-1);
+  };
 
   if (isLoading) {
     return <Loader />;
@@ -33,6 +40,7 @@ const ProductList = ({ onShowMore }) => {
   return (
     <div className={css.productListWrap}>
       <div className={css.productListButton}>
+        <button className={css.goBackButton} onClick={handleGoBack}></button>
         <div className={css.searchBox}>
           <SearchBox />
           {filteredProducts.length === 0 && (

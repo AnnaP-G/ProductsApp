@@ -21,22 +21,23 @@ const AddProductForm = () => {
       }}
       validationSchema={validationSchema}
       onSubmit={async (values, { setSubmitting, resetForm }) => {
+        const currentDate = new Date().toISOString();
         const productData = {
           ...values,
           price: parseFloat(values.price),
-          createdAt: new Date().toISOString(),
+          createdAt: currentDate,
+          publicationDate: values.published ? currentDate : null, // Встановлює дату публікації, якщо продукт опублікований
           id: nanoid(),
         };
+
+        dispatch(addUserProduct(productData)); // Додає продукт до Redux store
+
         if (productData.published) {
-          dispatch(addProduct(productData));
-          dispatch(addUserProduct(productData));
-          resetForm();
-          setSubmitting(false);
-        } else {
-          dispatch(addUserProduct(productData));
-          resetForm();
-          setSubmitting(false);
+          dispatch(addProduct(productData)); // Якщо опубліковано, додає продукт до продуктів
         }
+
+        resetForm();
+        setSubmitting(false);
       }}
     >
       {({ isSubmitting }) => (

@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import { togglePublished } from "../../redux/userProducts/slice.js";
 
 const UserProductItem = ({ product, handleEdit, handleDelete }) => {
-  console.log(product);
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -17,8 +16,14 @@ const UserProductItem = ({ product, handleEdit, handleDelete }) => {
     handleDelete(product.id);
     setIsModalOpen(false);
   };
+
   const handleTogglePublished = (id) => {
     dispatch(togglePublished(id));
+  };
+
+  const formatDate = (dateString) => {
+    const options = { year: "numeric", month: "numeric", day: "numeric" };
+    return new Date(dateString).toLocaleDateString(undefined, options);
   };
 
   return (
@@ -35,6 +40,13 @@ const UserProductItem = ({ product, handleEdit, handleDelete }) => {
       <p>Category: {product.category}</p>
       <p>Price: ${product.price}</p>
       <p>{product.description}</p>
+      <p>Created At: {formatDate(product.createdAt)}</p>
+      <p>
+        Published At:{" "}
+        {product.publicationDate
+          ? formatDate(product.publicationDate)
+          : "Not Published"}
+      </p>
       <div className={css.productBtnWrap}>
         <button
           className={css.editButton}

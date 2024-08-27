@@ -49,36 +49,42 @@ const ProductDetailsPage = () => {
   }
 
   return (
-    <div className={css.productDetails}>
-      <button className={css.goBackButton} onClick={handleGoBack}>
-        Go Back
-      </button>
-      <div className={css.productDetailsImage}>
-        <img
-          src={product.image}
-          alt={product.title}
-          className={css.productImg}
-        />
-      </div>
-      <div className={css.productDetailsInfo}>
-        <h2 className={css.productDetailsInfoTitle}>{product.title}</h2>
-        <p>Category: {product.category}</p>
-        <p>Price: ${product.price}</p>
-        <p>{product.description}</p>
-        <button className={css.editButton} onClick={handleEdit}>
-          Edit Product
-        </button>
-        <button className={css.deleteButton} onClick={handleDelete}>
-          Delete Product
+    <div className={css.productDetailsWrap}>
+      <div className={css.goBackButtonWrap}>
+        <button className={css.goBackButton} onClick={handleGoBack}>
+          Go Back
         </button>
       </div>
-      {isModalOpen && (
-        <DeleteProductModal
-          isOpen={isModalOpen}
-          onClose={closeModal}
-          onConfirm={confirmDelete}
-        />
-      )}
+      <div className={css.productDetails}>
+        <div className={css.productDetailsImage}>
+          <img
+            src={product.image}
+            alt={product.title}
+            className={css.productImg}
+          />
+        </div>
+        <div className={css.productDetailsInfo}>
+          <h2 className={css.productDetailsInfoTitle}>{product.title}</h2>
+          <p className={css.productDetailsInfoText}>
+            Category: {product.category}
+          </p>
+          <p className={css.productDetailsInfoText}>Price: ${product.price}</p>
+          <p className={css.productDetailsInfoText}>{product.description}</p>
+          <button className={css.editButton} onClick={handleEdit}>
+            Edit Product
+          </button>
+          <button className={css.deleteButton} onClick={handleDelete}>
+            Delete Product
+          </button>
+        </div>
+        {isModalOpen && (
+          <DeleteProductModal
+            isOpen={isModalOpen}
+            onClose={closeModal}
+            onConfirm={confirmDelete}
+          />
+        )}
+      </div>
     </div>
   );
 };

@@ -32,7 +32,6 @@ const Navigation = () => {
           Add Product
         </NavLink>
       </nav>
-      <h1 className={css.title}>I am your store</h1>
     </>
   );
 };

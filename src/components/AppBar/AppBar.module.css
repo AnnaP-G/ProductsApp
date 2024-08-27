@@ -5,3 +5,9 @@
     margin-bottom: 10px;
     border-bottom: 1px solid #2a363b;
 }
+
+.title {
+    font-weight: 500;
+    font-size: 48px;
+    color: #566382;
+}

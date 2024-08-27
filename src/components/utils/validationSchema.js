@@ -10,6 +10,8 @@ export const validationSchema = Yup.object().shape({
     .positive("Price must be positive"),
   description: Yup.string()
     .required("Description is required")
-    .min(10, "Description is too short"),
+    .min(5, "Description is too short"),
   published: Yup.boolean().required("Published is required"),
+  image: Yup.string().url("Invalid image URL"),
+  category: Yup.string().required("Category is required"),
 });
