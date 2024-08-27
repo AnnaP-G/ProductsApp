@@ -3,9 +3,7 @@ import DeleteProductModal from "../../DeleteProductModal/DeleteProductModal.jsx"
 import { useState } from "react";
 
 const UserProductItem = ({ product, handleEdit, handleDelete }) => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    
-    
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const closeModal = () => {
     setIsModalOpen(false);
@@ -18,7 +16,7 @@ const UserProductItem = ({ product, handleEdit, handleDelete }) => {
 
   return (
     <li className={css.productItem}>
-      <h2>{product.title}</h2>
+      <h2 className={css.productTitle}>{product.title}</h2>
       <div>
         <img
           className={css.productImg}
@@ -29,12 +27,20 @@ const UserProductItem = ({ product, handleEdit, handleDelete }) => {
       <p>Category: {product.category}</p>
       <p>Price: ${product.price}</p>
       <p>{product.description}</p>
-      <button className={css.editButton} onClick={() => handleEdit(product.id)}>
-        Edit Product
-      </button>
-      <button className={css.deleteButton} onClick={() => setIsModalOpen(true)}>
-        Delete Product
-      </button>
+      <div className={css.productBtnWrap}>
+        <button
+          className={css.editButton}
+          onClick={() => handleEdit(product.id)}
+        >
+          Edit
+        </button>
+        <button
+          className={css.deleteButton}
+          onClick={() => setIsModalOpen(true)}
+        >
+          Delete
+        </button>
+      </div>
       {isModalOpen && (
         <DeleteProductModal
           isOpen={isModalOpen}

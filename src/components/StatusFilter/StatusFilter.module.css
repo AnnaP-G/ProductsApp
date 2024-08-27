@@ -1,6 +1,8 @@
 .filterContainer {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    padding-top: 12px;
+    gap: 5px;
 }
 
 .filterLabel {
@@ -11,7 +13,6 @@
 }
 
 .filterCheckbox {
-    margin-right: 8px;
+    margin-right: 5px;
 }
 
-/* Додайте інші стилі за потреби */

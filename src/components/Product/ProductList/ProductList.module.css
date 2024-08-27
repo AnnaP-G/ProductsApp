@@ -1,12 +1,13 @@
 .productList {
-    padding: 0;
+    margin: 0 auto;
     margin: 0;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
     grid-gap: 12px;
-    align-items: center;
-    justify-content: space-between;
+    align-items: start;
+    justify-content: center;
+    position: relative;
 }
 
 .productListButton {
@@ -43,4 +44,18 @@
     background-color: #0056b3;
     color: white;
     border-color: #0056b3;
+}
+
+.searchBox {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2px;
+
+}
+
+.noResultsMessage {
+    font-size: 16px;
+    color: #ff0000;
+    position: absolute;
+    bottom: 0;
 }

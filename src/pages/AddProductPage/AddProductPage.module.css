@@ -1,6 +1,9 @@
 .addProductPage {
-        display: flex;
-        /* gap: 40px; */
+    display: flex;
+    padding: 10px;
+    gap: 20px;
+    justify-content: space-around;
+
 }
 
 .addProductPageTitle {
@@ -9,4 +12,5 @@
     color: #333;
     text-align: center;
     margin-bottom: 20px;
+    padding: 10px;
 }

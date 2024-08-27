@@ -4,32 +4,41 @@ import ProductItem from "../ProductItem/ProductItem.jsx";
 import Loader from "../../Loader/Loader.jsx";
 import ErrorMessage from "../../ErrorMessage/ErrorMessage.jsx";
 import {
-  selectProducts,
   selectProductsError,
   selectProductsIsLoading,
 } from "../../redux/products/selectors.js";
+import { selectFilteredProductsByName } from "../../redux/filters/selectors.js";
 import clsx from "clsx";
 import css from "./ProductList.module.css";
+import SearchBox from "../../SearchBox/SearchBox.jsx";
 
 const ProductList = ({ onShowMore }) => {
   const isLoading = useSelector(selectProductsIsLoading);
   const isError = useSelector(selectProductsError);
-  const products = useSelector(selectProducts);
+  const filteredProducts = useSelector(selectFilteredProductsByName); // Використовуємо відфільтровані продукти
   const [limit, setLimit] = useState(8);
 
   const handleShow8Products = () => setLimit(8);
   const handleShow16Products = () => setLimit(16);
-  const handleShowAllProducts = () => setLimit(products.length);
+  const handleShowAllProducts = () => setLimit(filteredProducts.length);
 
-  if (!Array.isArray(products) || products.length === 0) {
-    return <p>There are no products available</p>;
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  if (isError) {
+    return <ErrorMessage />;
   }
 
   return (
     <div className={css.productListWrap}>
-      {isLoading && <Loader />}
-      {isError && <ErrorMessage />}
       <div className={css.productListButton}>
+        <div className={css.searchBox}>
+          <SearchBox />
+          {filteredProducts.length === 0 && (
+            <p className={css.noResultsMessage}>No products found</p>
+          )}
+        </div>
         <button
           className={clsx(css.button, {
             [css.activeButton]: limit === 8,
@@ -48,7 +57,7 @@ const ProductList = ({ onShowMore }) => {
         </button>
         <button
           className={clsx(css.button, {
-            [css.activeButton]: limit === products.length,
+            [css.activeButton]: limit === filteredProducts.length,
           })}
           onClick={handleShowAllProducts}
         >
@@ -56,7 +65,7 @@ const ProductList = ({ onShowMore }) => {
         </button>
       </div>
       <ul className={css.productList}>
-        {products.slice(0, limit).map((product) => (
+        {filteredProducts.slice(0, limit).map((product) => (
           <ProductItem
             key={product.id}
             product={product}

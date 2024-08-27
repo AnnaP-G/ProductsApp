@@ -37,13 +37,13 @@ const UserListProducts = () => {
   return (
     <div className={css.productListContainer}>
       <div className={css.header}>
-        <h1 className={css.title}>New Products List</h1>
+        <h1 className={css.title}>New List</h1>
         <StatusFilter />
       </div>
       {visiblePublish.length === 0 ? (
         <p>No products added yet</p>
       ) : (
-        <ul>
+        <ul className={css.userProductList}>
           {visiblePublish.map((product) => (
             <UserProductItem
               key={product.id}
