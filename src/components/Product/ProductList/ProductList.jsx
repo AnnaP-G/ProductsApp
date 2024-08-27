@@ -15,7 +15,7 @@ import SearchBox from "../../SearchBox/SearchBox.jsx";
 const ProductList = ({ onShowMore }) => {
   const isLoading = useSelector(selectProductsIsLoading);
   const isError = useSelector(selectProductsError);
-  const filteredProducts = useSelector(selectFilteredProductsByName); // Використовуємо відфільтровані продукти
+  const filteredProducts = useSelector(selectFilteredProductsByName);
   const [limit, setLimit] = useState(8);
 
   const handleShow8Products = () => setLimit(8);

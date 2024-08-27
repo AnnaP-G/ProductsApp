@@ -28,17 +28,21 @@ const userProductsSlice = createSlice({
       }
     },
     togglePublished(state, action) {
-      for (const product of state.products) {
-        if (product.id === action.payload) {
-          product.published = !product.published;
-          break;
-        }
+      const index = state.products.findIndex(
+        (product) => product.id === action.payload
+      );
+      if (index !== -1) {
+        state.products[index].published = !state.products[index].published;
       }
     },
   },
 });
 
-export const { addUserProduct, updateUserProduct, deleteUserProduct } =
-  userProductsSlice.actions;
+export const {
+  addUserProduct,
+  updateUserProduct,
+  deleteUserProduct,
+  togglePublished,
+} = userProductsSlice.actions;
 
 export const userProductsReducer = userProductsSlice.reducer;

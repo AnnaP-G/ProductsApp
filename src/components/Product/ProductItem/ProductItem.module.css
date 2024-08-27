@@ -1,6 +1,5 @@
 .productItem {
     display: flex;
-    /* justify-content:space-between; */
     flex-direction: column;
     width: 100%;
     width: calc((100% / 4) - 36px);
@@ -29,7 +28,6 @@
     color: white;
     border-bottom: 1px solid #082748;
     color: #082748;
-    /* background-color: #007bff; */
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
 }

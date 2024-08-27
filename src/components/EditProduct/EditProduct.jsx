@@ -20,7 +20,7 @@ const EditProduct = () => {
   );
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
-      await dispatch(updateProduct({ ...values, id: productId })).unwrap();
+      await dispatch(updateProduct({ ...values, id: productId }));
       navigate(`/products/`);
     } catch (error) {
       console.error("Error updating product:", error);

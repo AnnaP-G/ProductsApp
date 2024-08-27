@@ -1,8 +1,11 @@
 import css from "./UserProductItem.module.css";
 import DeleteProductModal from "../../DeleteProductModal/DeleteProductModal.jsx";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { togglePublished } from "../../redux/userProducts/slice.js";
 
 const UserProductItem = ({ product, handleEdit, handleDelete }) => {
+  const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const closeModal = () => {
@@ -13,10 +16,14 @@ const UserProductItem = ({ product, handleEdit, handleDelete }) => {
     handleDelete(product.id);
     setIsModalOpen(false);
   };
+  const handleTogglePublished = (id) => {
+    dispatch(togglePublished(id));
+  };
 
   return (
     <li className={css.productItem}>
       <h2 className={css.productTitle}>{product.title}</h2>
+
       <div>
         <img
           className={css.productImg}
@@ -41,6 +48,12 @@ const UserProductItem = ({ product, handleEdit, handleDelete }) => {
           Delete
         </button>
       </div>
+      <button
+        className={css.togglePublishedButton}
+        onClick={() => handleTogglePublished(product.id)}
+      >
+        {product.published ? "Unpublish" : "Publish"}
+      </button>
       {isModalOpen && (
         <DeleteProductModal
           isOpen={isModalOpen}

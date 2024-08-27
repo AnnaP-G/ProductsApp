@@ -13,6 +13,7 @@
     flex: 1 1 calc(50% - 10px);
     max-width: calc(50% - 10px);
     box-sizing: border-box;
+    height: 340px;
     }
 
     .productTitle {
@@ -41,10 +42,26 @@
     border-radius: 20px;
     cursor: pointer;
     width: 70px;
+    transition: color 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.togglePublishedButton {
+    border-radius: 20px;
+    padding: 5px 10px;
+    border-bottom: 1px solid #082748;
+    transition: color 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.togglePublishedButton:hover,
+.togglePublishedButton:focus {
+    background-color:#4CAF50;
+    color: white
 }
 
 .editButton {
-    background-color: #4CAF50;
+    background-color: #007bff ;
     color: #fff;
 }
 
@@ -53,7 +70,10 @@
     color: #fff;
 }
 
-.editButton:hover,
+.editButton:hover {
+    background-color: #0056b3;
+}
+
 .deleteButton:hover {
-    opacity: 0.8;
+    background-color: #c82333;
 }

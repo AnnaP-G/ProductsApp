@@ -4,7 +4,7 @@ import { statusFilters } from "./constants";
 const filtersSlice = createSlice({
   name: "filters",
   initialState: {
-    name: "", // Додаємо фільтр за назвою
+    name: "",
     status: statusFilters.all,
   },
   reducers: {

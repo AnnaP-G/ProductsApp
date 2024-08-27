@@ -6,11 +6,11 @@ import { setNameFilter } from "../redux/filters/slice.js";
 
 const SearchBox = () => {
   const dispatch = useDispatch();
-  const filter = useSelector(selectNameFilter); // Отримання значення фільтра з Redux store
+  const filter = useSelector(selectNameFilter);
 
   const onChangeFilter = (event) => {
     const value = event.target.value;
-    dispatch(setNameFilter(value)); // Відправка зміни фільтра в Redux store
+    dispatch(setNameFilter(value));
   };
 
   return (
