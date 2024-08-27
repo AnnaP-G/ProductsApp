@@ -40,7 +40,9 @@ const ProductList = ({ onShowMore }) => {
   return (
     <div className={css.productListWrap}>
       <div className={css.productListButton}>
-        <button className={css.goBackButton} onClick={handleGoBack}></button>
+        {/* <button className={css.goBackButton} onClick={handleGoBack}>
+          Go Back
+        </button> */}
         <div className={css.searchBox}>
           <SearchBox />
           {filteredProducts.length === 0 && (

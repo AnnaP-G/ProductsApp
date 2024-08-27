@@ -13,10 +13,17 @@ import { configureStore } from "@reduxjs/toolkit";
 import productsReducer from "./products/slice.js";
 import { filtersReducer } from "./filters/slice.js";
 import { userProductsReducer } from "./userProducts/slice.js";
+import { authReducer } from "./auth/slice.js";
 
 const userProductsPersistConfig = {
   key: "userProducts",
   storage,
+};
+
+const authPersistConfig = {
+  key: "auth",
+  storage,
+  whitelist: ["token"],
 };
 
 export const store = configureStore({
@@ -25,6 +32,7 @@ export const store = configureStore({
       userProductsPersistConfig,
       userProductsReducer
     ),
+    auth: persistReducer(authPersistConfig, authReducer),
     products: productsReducer,
     filters: filtersReducer,
   },

@@ -8,6 +8,14 @@ const Navigation = () => {
       <nav>
         <NavLink
           className={({ isActive }) =>
+            clsx(css.link, { [css.active]: isActive }, css.logo)
+          }
+          to="/"
+        >
+          Your logo
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
             clsx(css.link, { [css.active]: isActive })
           }
           to="/"
