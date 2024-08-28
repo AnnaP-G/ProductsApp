@@ -100,7 +100,7 @@ const EditProduct = () => {
           </div>
 
           <div className={css.formGroupCheckbox}>
-            <label>
+            <label className={css.checkLabel}>
               <Field name="published" type="checkbox" />
               Published
             </label>

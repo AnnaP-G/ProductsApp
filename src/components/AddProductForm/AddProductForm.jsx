@@ -26,14 +26,14 @@ const AddProductForm = () => {
           ...values,
           price: parseFloat(values.price),
           createdAt: currentDate,
-          publicationDate: values.published ? currentDate : null, // Встановлює дату публікації, якщо продукт опублікований
+          publicationDate: values.published ? currentDate : null,
           id: nanoid(),
         };
 
-        dispatch(addUserProduct(productData)); // Додає продукт до Redux store
+        dispatch(addUserProduct(productData));
 
         if (productData.published) {
-          dispatch(addProduct(productData)); // Якщо опубліковано, додає продукт до продуктів
+          dispatch(addProduct(productData));
         }
 
         resetForm();

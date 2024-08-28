@@ -15,7 +15,7 @@ const EditProductPage = () => {
         Go Back
       </button>
       <div className={css.contentContainer}>
-        <h1>Edit Product</h1>
+        <h1 className={css.editTitle}>Edit Product</h1>
         <EditProduct />
       </div>
     </div>

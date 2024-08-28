@@ -1,4 +1,7 @@
 .productItem {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 16px;
@@ -6,13 +9,17 @@
     flex-direction: column;
     align-items: center;
     background-color: #fff;
-    width: 200px;
+    width: 240px;
     margin: 0 auto;
 }
 
 .productTitle {
-    font-size: 1.5rem;
+    font-size: 12px;;
     margin-bottom: 8px;
+}
+
+.productText {
+    font-size: 10px;
 }
 
 .productImg {
@@ -24,8 +31,8 @@
 
 .productBtnWrap {
     display: flex;
-    gap: 8px;
-    margin-bottom: 8px;
+    gap: 5px;
+    margin-bottom: 5px;
     margin: 0 auto;
 }
 
@@ -33,12 +40,13 @@
 .deleteButton,
 .togglePublishedButton {
     text-align: center;
-    width: 90px;
+    width: 80px;
     padding: 8px 16px;
     border: none;
     border-radius: 30px;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-size: 12px;
 }
 
 .editButton {
@@ -55,7 +63,7 @@
     background-color:  transparent;
     border-bottom: 1px solid black;
     color: black;
-    margin-top: 10px;
+    margin-top: 2px;
 }
 
 .editButton:hover {
@@ -73,13 +81,9 @@
 }
 
 .productBtnWrap button {
-    margin-right: 8px;
+    margin-right: 5px;
 }
 
-.productItem p {
-    margin: 4px 0;
-    font-size: 0.9rem;
-}
 
 .productItem img {
     max-width: 100%;
@@ -87,5 +91,5 @@
 }
 
 .productItem p:last-of-type {
-    margin-bottom: 16px;
+    margin-bottom: 10px;
 }

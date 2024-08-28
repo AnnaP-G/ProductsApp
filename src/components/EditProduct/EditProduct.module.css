@@ -5,6 +5,7 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
+    font-size: 12px;
 }
 
 .formGroup {
@@ -16,6 +17,12 @@
     font-weight: bold;
     margin-bottom: 5px;
     color: #333333;
+}
+
+.checkLabel {
+    display: flex;
+    gap: 8px;
+    align-items: center;
 }
 
 .input,
@@ -46,7 +53,9 @@
 }
 
 .formGroupCheckbox {
+    display: flex;
     margin: 15px 0;
+    align-items: center;
 }
 
 .submitButton {

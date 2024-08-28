@@ -16,6 +16,7 @@ nav {
     margin: 0 10px;
     color: #082748;
     font-weight: bold;
+    font-size: 12px;
     border-bottom: 1px solid #082748;
     transition: color 0.3s ease, background-color 0.3s ease;
 }

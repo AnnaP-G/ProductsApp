@@ -10,6 +10,7 @@ nav {
  }
 
 .link {
+    font-size: 14px;
     text-decoration: none;
     display: flex;
     text-align: center;

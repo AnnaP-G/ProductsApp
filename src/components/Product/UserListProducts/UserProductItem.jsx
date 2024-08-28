@@ -37,11 +37,11 @@ const UserProductItem = ({ product, handleEdit, handleDelete }) => {
           alt={product.title}
         />
       </div>
-      <p>Category: {product.category}</p>
-      <p>Price: ${product.price}</p>
-      <p>{product.description}</p>
-      <p>Created At: {formatDate(product.createdAt)}</p>
-      <p>
+      <p className={css.productText}>Category: {product.category}</p>
+      <p className={css.productText}>Price: ${product.price}</p>
+      <p className={css.productText}>{product.description}</p>
+      <p className={css.productText}>Created At: {formatDate(product.createdAt)}</p>
+      <p className={css.productText}>
         Published At:{" "}
         {product.publicationDate
           ? formatDate(product.publicationDate)

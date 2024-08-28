@@ -4,6 +4,10 @@
     padding: 20px;
 }
 
+.editTitle {
+    font-size: 26px;
+}
+
 .goBackButton {
     text-decoration: none;
     display: flex;
@@ -21,6 +25,7 @@
     position: absolute;
     top: 10px;
     left: 20px;
+    font-size: 12px;
 }
 
 .goBackButton:hover,
