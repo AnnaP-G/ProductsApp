@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ProductCard from "../../Product/ProductCard/ProductCard.jsx";
 import DeleteProductModal from "../../DeleteProductModal/DeleteProductModal.jsx";
 import css from "./ProductItem.module.css";
-import sprite from "../../../assets/images/icon.svg";
+// import sprite from "../../";
 import { useDispatch } from "react-redux";
 import { deleteProduct } from "../../redux/products/operations.js";
 
@@ -46,12 +46,12 @@ const ProductItem = ({ product, onShowMore }) => {
           </button>
           <button className={css.editButton} onClick={handleEdit}>
             <svg className={css.iconEdit} aria-hidden="true">
-              <use href={`${sprite}#icon-edit`} />
+              <use href="/images/icon.svg#icon-edit"></use>
             </svg>
           </button>
           <button className={css.deleteButton} onClick={handleDelete}>
             <svg className={css.iconDelete} aria-hidden="true">
-              <use href={`${sprite}#icon-trash`} />
+              <use href="/images/icon.svg#icon-trash"></use>
             </svg>
           </button>
         </div>
