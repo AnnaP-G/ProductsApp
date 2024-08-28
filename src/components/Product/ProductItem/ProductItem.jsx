@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ProductCard from "../../Product/ProductCard/ProductCard.jsx";
 import DeleteProductModal from "../../DeleteProductModal/DeleteProductModal.jsx";
 import css from "./ProductItem.module.css";
-import sprite from "../../../../public/images/icon.svg";
+import sprite from "../../../assets/images/icon.svg";
 import { useDispatch } from "react-redux";
 import { deleteProduct } from "../../redux/products/operations.js";
 
