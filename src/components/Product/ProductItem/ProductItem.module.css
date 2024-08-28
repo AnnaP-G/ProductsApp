@@ -50,19 +50,20 @@
     transition: fill 0.3s ease;
 }
 
-.editButton:hover .icon,
-.deleteButton:hover .icon,
-.editButton:focus .icon,
-.deleteButton:focus .icon {
-    stroke: #0056b3;
+.editButton:hover .iconEdit,
+.deleteButton:hover .iconDelete,
+.editButton:focus .iconEdit,
+.deleteButton:focus .iconDelete {
+    /* stroke: #0056b3; */
     fill: #0056b3;
     transition: stroke 0.3s ease, fill 0.3s ease;
 }
 
-.icon {
+.iconEdit,
+.iconDelete {
     width: 20px;
     height: 20px;
     stroke: #0056b3;
-    fill: transparent;
+    fill: white;
     transition: stroke 0.3s ease, fill 0.3s ease;
 }

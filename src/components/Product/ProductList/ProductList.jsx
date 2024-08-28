@@ -50,7 +50,7 @@ const ProductList = ({ onShowMore }) => {
           )}
         </div>
         <button
-          className={clsx(css.button, {
+          className={clsx(css.buttonList, {
             [css.activeButton]: limit === 8,
           })}
           onClick={handleShow8Products}
@@ -58,7 +58,7 @@ const ProductList = ({ onShowMore }) => {
           Show 8 products
         </button>
         <button
-          className={clsx(css.button, {
+          className={clsx(css.buttonList, {
             [css.activeButton]: limit === 16,
           })}
           onClick={handleShow16Products}
@@ -66,7 +66,7 @@ const ProductList = ({ onShowMore }) => {
           Show 16 products
         </button>
         <button
-          className={clsx(css.button, {
+          className={clsx(css.buttonList, {
             [css.activeButton]: limit === filteredProducts.length,
           })}
           onClick={handleShowAllProducts}

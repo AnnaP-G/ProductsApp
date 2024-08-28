@@ -45,12 +45,12 @@ const ProductItem = ({ product, onShowMore }) => {
             Show info
           </button>
           <button className={css.editButton} onClick={handleEdit}>
-            <svg className={css.icon} aria-hidden="true">
+            <svg className={css.iconEdit} aria-hidden="true">
               <use xlinkHref={`${sprite}#icon-edit`} />
             </svg>
           </button>
           <button className={css.deleteButton} onClick={handleDelete}>
-            <svg className={css.icon} aria-hidden="true">
+            <svg className={css.iconDelete} aria-hidden="true">
               <use xlinkHref={`${sprite}#icon-trash`} />
             </svg>
           </button>

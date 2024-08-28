@@ -18,7 +18,7 @@
     font-size: 12px;
 }
 
-.button {
+.buttonList {
     text-decoration: none;
     display: flex;
     text-align: center;
@@ -50,12 +50,6 @@
 .searchBox {
     display: flex;
     flex-direction: column;
-}
-
-.activeButton {
-    background-color: #0056b3;
-    color: white;
-    border-color: #0056b3;
 }
 
 .noResultsMessage {
