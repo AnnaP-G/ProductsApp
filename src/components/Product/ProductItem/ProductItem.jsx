@@ -51,7 +51,7 @@ const ProductItem = ({ product, onShowMore }) => {
           </button>
           <button className={css.deleteButton} onClick={handleDelete}>
             <svg className={css.iconDelete} aria-hidden="true">
-              <use href={`${sprite}#icon-delete`} />
+              <use href={`${sprite}#icon-trash`} />
             </svg>
           </button>
         </div>
